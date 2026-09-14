@@ -1,0 +1,13 @@
+/* ColdCare Enhancements Stylesheet - Supportive Utilities */
+.cc-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.cc-chip.ok { background: #e8f7ee; color: #087443; }
+.cc-chip.warn { background: #fef3c7; color: #b45309; }
+.cc-chip.bad { background: #fee2e2; color: #dc2626; }

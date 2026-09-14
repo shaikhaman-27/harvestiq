@@ -1,0 +1,162 @@
+=== SLIDE 1 ===
+  Shape: Rectangle 24 (type: AUTO_SHAPE (1))
+    Left: 1524000, Top: 0, Width: 9144000, Height: 6858000
+  Shape: Freeform: Shape 26 (type: FREEFORM (5))
+    Left: 5656780, Top: 851521, Width: 4638605, Height: 5154967
+  Shape: Picture 4 (type: PICTURE (13))
+    Left: 6854891, Top: 1715881, Width: 3203509, Height: 3426237
+  Shape: Subtitle 3 (type: PLACEHOLDER (14))
+    Left: 1245686, Top: 648614, Width: 8534400, Height: 1752600
+      Text: 'TITLE PAGE' | Font: Times New Roman | Size: None | Color: theme/auto
+  Shape: Title 7 (type: PLACEHOLDER (14))
+    Left: 331286, Top: -526757, Width: 10363200, Height: 2076450
+      Text: 'SMART INDIA HACKATHON ' | Font: Garamond | Size: 508000 | Color: theme/auto
+      Text: '2026' | Font: Garamond | Size: 508000 | Color: theme/auto
+  Shape: TextBox 9 (type: TEXT_BOX (17))
+    Left: 331286, Top: 2076450, Width: 5924550, Height: 4703019
+      Text: 'Problem Statement ID –' | Font: Arial | Size: 304800 | Color: theme/auto
+      Text: 'Problem Statement Title-' | Font: Arial | Size: 304800 | Color: theme/auto
+      Text: 'Theme-' | Font: Arial | Size: 304800 | Color: theme/auto
+      Text: 'PS Category- Software/Hardware' | Font: Arial | Size: 304800 | Color: theme/auto
+      Text: 'Team ID-' | Font: Arial | Size: 304800 | Color: theme/auto
+      Text: 'Team Name (Registered on portal)' | Font: Arial | Size: 304800 | Color: theme/auto
+  Shape: Picture 1 (type: PICTURE (13))
+    Left: 9780086, Top: 1500, Width: 2249850, Height: 1062337
+=== SLIDE 2 ===
+  Shape: Rectangle 8 (type: AUTO_SHAPE (1))
+    Left: 0, Top: 6354762, Width: 12191999, Height: 503238
+  Shape: Title 1 (type: PLACEHOLDER (14))
+    Left: 182998, Top: 0, Width: 10972800, Height: 1143000
+      Text: '' | Font: Times New Roman | Size: 457200 | Color: theme/auto
+      Text: 'IDEA TITLE' | Font: Times New Roman | Size: 457200 | Color: theme/auto
+  Shape: TextBox 8 (type: TEXT_BOX (17))
+    Left: -1, Top: 2064921, Width: 12191999, Height: 2492990
+      Text: 'Proposed Solution (Describe your Idea/Solution/Prototype)' | Font: Arial | Size: 406400 | Color: theme/auto
+      Text: 'Detailed explanation of the proposed solution' | Font: Arial | Size: 355600 | Color: theme/auto
+      Text: ' How it addresses the problem' | Font: Arial | Size: 355600 | Color: theme/auto
+      Text: 'Innovation and uniqueness of the solution ' | Font: Arial | Size: 355600 | Color: theme/auto
+  Shape: Slide Number Placeholder 5 (type: PLACEHOLDER (14))
+    Left: 8737600, Top: 6356353, Width: 2844800, Height: 365125
+  Shape: Footer Placeholder 6 (type: PLACEHOLDER (14))
+    Left: 4648200, Top: 6356353, Width: 3204000, Height: 365125
+      Text: '@SIH Idea submission- Template' | Font: None | Size: None | Color: theme/auto
+  Shape: Oval 9 (type: AUTO_SHAPE (1))
+    Left: 329773, Top: 252246, Width: 1251857, Height: 807334
+      Text: 'Your Team Name' | Font: None | Size: None | Color: theme/auto
+  Shape: Picture 10 (type: PICTURE (13))
+    Left: 9780086, Top: 1500, Width: 2249850, Height: 1062337
+=== SLIDE 3 ===
+  Shape: Rectangle 9 (type: AUTO_SHAPE (1))
+    Left: 0, Top: 6354762, Width: 12191999, Height: 503238
+  Shape: Title 1 (type: PLACEHOLDER (14))
+    Left: 609600, Top: -47625, Width: 10972800, Height: 1143000
+      Text: 'TECHNICAL APPROACH' | Font: Times New Roman | Size: 457200 | Color: theme/auto
+  Shape: TextBox 8 (type: TEXT_BOX (17))
+    Left: 609600, Top: 2533653, Width: 9385300, Height: 1815882
+      Text: 'Technologies to be used (e.g. programming languages, frameworks, hardware)' | Font: Arial | Size: 355600 | Color: theme/auto
+      Text: 'Methodology and process for implementation (Flow Charts/Images/ working prototype)' | Font: Arial | Size: 355600 | Color: theme/auto
+  Shape: Slide Number Placeholder 5 (type: PLACEHOLDER (14))
+    Left: 8737600, Top: 6356353, Width: 2844800, Height: 365125
+  Shape: Footer Placeholder 6 (type: PLACEHOLDER (14))
+    Left: 4648200, Top: 6356353, Width: 3204000, Height: 365125
+      Text: '@SIH Idea submission- Template' | Font: None | Size: None | Color: theme/auto
+  Shape: Oval 10 (type: AUTO_SHAPE (1))
+    Left: 329773, Top: 252246, Width: 1251857, Height: 807334
+      Text: 'Your Team Name' | Font: None | Size: None | Color: theme/auto
+  Shape: Picture 11 (type: PICTURE (13))
+    Left: 9780086, Top: 1500, Width: 2249850, Height: 1062337
+=== SLIDE 4 ===
+  Shape: Rectangle 9 (type: AUTO_SHAPE (1))
+    Left: 0, Top: 6354762, Width: 12191999, Height: 503238
+  Shape: Title 1 (type: PLACEHOLDER (14))
+    Left: 609600, Top: -47625, Width: 10972800, Height: 1143000
+      Text: 'FEASIBILITY AND VIABILITY' | Font: Times New Roman | Size: 457200 | Color: theme/auto
+  Shape: TextBox 8 (type: TEXT_BOX (17))
+    Left: 609600, Top: 2533653, Width: 9385300, Height: 1384995
+      Text: 'Analysis of the feasibility of the idea' | Font: Arial | Size: 355600 | Color: theme/auto
+      Text: 'Potential challenges and risks' | Font: Arial | Size: 355600 | Color: theme/auto
+      Text: 'Strategies' | Font: Arial | Size: 355600 | Color: theme/auto
+      Text: ' for overcoming these challenges' | Font: Arial | Size: 355600 | Color: theme/auto
+  Shape: Slide Number Placeholder 5 (type: PLACEHOLDER (14))
+    Left: 8737600, Top: 6356353, Width: 2844800, Height: 365125
+  Shape: Footer Placeholder 6 (type: PLACEHOLDER (14))
+    Left: 4648200, Top: 6356353, Width: 3204000, Height: 365125
+      Text: '@SIH Idea submission- Template' | Font: TradeGothic | Size: 152400 | Color: theme/auto
+  Shape: Oval 11 (type: AUTO_SHAPE (1))
+    Left: 329773, Top: 252246, Width: 1251857, Height: 807334
+      Text: 'Your Team Name' | Font: None | Size: None | Color: theme/auto
+  Shape: Picture 10 (type: PICTURE (13))
+    Left: 9780086, Top: 1500, Width: 2249850, Height: 1062337
+=== SLIDE 5 ===
+  Shape: Rectangle 9 (type: AUTO_SHAPE (1))
+    Left: 0, Top: 6354762, Width: 12191999, Height: 503238
+  Shape: Title 1 (type: PLACEHOLDER (14))
+    Left: 609600, Top: -47625, Width: 10972800, Height: 1143000
+      Text: 'IMPACT AND BENEFITS' | Font: Times New Roman | Size: 457200 | Color: theme/auto
+  Shape: TextBox 8 (type: TEXT_BOX (17))
+    Left: 609600, Top: 2533653, Width: 9385300, Height: 1384995
+      Text: 'Potential impact on the target audience' | Font: Arial | Size: 355600 | Color: theme/auto
+      Text: 'Benefits of the solution (social, economic, environmental, etc.)' | Font: Arial | Size: 355600 | Color: theme/auto
+  Shape: Slide Number Placeholder 5 (type: PLACEHOLDER (14))
+    Left: 8737600, Top: 6356353, Width: 2844800, Height: 365125
+  Shape: Footer Placeholder 6 (type: PLACEHOLDER (14))
+    Left: 4648200, Top: 6356353, Width: 3204000, Height: 365125
+      Text: '@SIH Idea submission- Template' | Font: TradeGothic | Size: 152400 | Color: theme/auto
+  Shape: Oval 11 (type: AUTO_SHAPE (1))
+    Left: 329773, Top: 252246, Width: 1251857, Height: 807334
+      Text: 'Your Team Name' | Font: None | Size: None | Color: theme/auto
+  Shape: Picture 10 (type: PICTURE (13))
+    Left: 9780086, Top: 1500, Width: 2249850, Height: 1062337
+=== SLIDE 6 ===
+  Shape: Rectangle 9 (type: AUTO_SHAPE (1))
+    Left: 0, Top: 6354762, Width: 12191999, Height: 503238
+  Shape: Title 1 (type: PLACEHOLDER (14))
+    Left: 609600, Top: -47625, Width: 10972800, Height: 1143000
+      Text: 'RESEARCH  AND REFERENCES' | Font: Times New Roman | Size: 457200 | Color: theme/auto
+  Shape: TextBox 8 (type: TEXT_BOX (17))
+    Left: 609600, Top: 2795263, Width: 9385300, Height: 523220
+      Text: 'Details / Links of the reference and research work' | Font: Arial | Size: 355600 | Color: theme/auto
+  Shape: Slide Number Placeholder 5 (type: PLACEHOLDER (14))
+    Left: 8737600, Top: 6356353, Width: 2844800, Height: 365125
+  Shape: Footer Placeholder 6 (type: PLACEHOLDER (14))
+    Left: 4648200, Top: 6356353, Width: 3204000, Height: 365125
+      Text: '@SIH Idea submission- Template' | Font: TradeGothic | Size: 152400 | Color: theme/auto
+  Shape: Oval 8 (type: AUTO_SHAPE (1))
+    Left: 329773, Top: 252246, Width: 1251857, Height: 807334
+      Text: 'Your Team Name' | Font: None | Size: None | Color: theme/auto
+  Shape: Picture 11 (type: PICTURE (13))
+    Left: 9780086, Top: 1500, Width: 2249850, Height: 1062337
+=== SLIDE 7 ===
+  Shape: Rectangle 9 (type: AUTO_SHAPE (1))
+    Left: 0, Top: 6354762, Width: 12191999, Height: 503238
+  Shape: Slide Number Placeholder 5 (type: PLACEHOLDER (14))
+    Left: 8737600, Top: 6356353, Width: 2844800, Height: 365125
+  Shape: Footer Placeholder 6 (type: PLACEHOLDER (14))
+    Left: 4648200, Top: 6356353, Width: 3204000, Height: 365125
+      Text: '@SIH Idea submission- Template' | Font: TradeGothic | Size: 152400 | Color: theme/auto
+  Shape: Round Diagonal Corner Rectangle 2 (type: AUTO_SHAPE (1))
+    Left: 0, Top: 1791032, Width: 12192000, Height: 4319200
+  Shape: Google Shape;100;p3 (type: TEXT_BOX (17))
+    Left: 367832, Top: 1915454, Width: 11764736, Height: 4070356
+      Text: 'Kindly keep the maximum slides limit up to six ' | Font: Arial | Size: None | Color: theme/auto
+      Text: '(6). ' | Font: Arial | Size: None | Color: C00000
+      Text: '( Including the ' | Font: Arial | Size: None | Color: theme/auto
+      Text: 'title slide) ' | Font: Arial | Size: None | Color: theme/auto
+      Text: 'Try to avoid paragraphs and post your idea in points /diagrams / Infographics /pictures ' | Font: Arial | Size: None | Color: theme/auto
+      Text: 'Keep your explanation precise and easy to understand' | Font: Arial | Size: None | Color: theme/auto
+      Text: 'Idea should be unique and novel. ' | Font: Arial | Size: None | Color: theme/auto
+      Text: 'You can only use provided ' | Font: Arial | Size: None | Color: theme/auto
+      Text: 'template' | Font: Arial | Size: None | Color: theme/auto
+      Text: ' for making the ' | Font: Arial | Size: None | Color: theme/auto
+      Text: 'PPT' | Font: Arial | Size: None | Color: theme/auto
+      Text: ' without changing the idea details pointers (mentioned in previous slides).' | Font: Arial | Size: None | Color: theme/auto
+      Text: 'You need to save the file in PDF and upload the same on portal. No PPT, Word Doc or any other format will be supported.' | Font: Arial | Size: None | Color: theme/auto
+      Text: 'Note - You can delete this slide (Important Pointers) when you upload the details of your idea on SIH portal.' | Font: Arial | Size: None | Color: C00000
+  Shape: TextBox 3 (type: TEXT_BOX (17))
+    Left: 1393371, Top: 107066, Width: 8410540, Height: 646331
+      Text: 'IMPORTANT INSTRUCTIONS' | Font: Times New Roman | Size: 457200 | Color: theme/auto
+  Shape: TextBox 4 (type: TEXT_BOX (17))
+    Left: 602343, Top: 1181900, Width: 9557657, Height: 341632
+      Text: 'Please ensure below pointers are met while submitting the Idea PPT:' | Font: Arial | Size: None | Color: theme/auto
+  Shape: Picture 12 (type: PICTURE (13))
+    Left: 9780086, Top: 1500, Width: 2249850, Height: 1062337

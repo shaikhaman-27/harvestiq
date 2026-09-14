@@ -1,0 +1,1207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HarvestIQ • Solar-Powered Smart Cold Storage (SIH 2026)</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="coldcare-enhancements.css">
+</head>
+<body>
+
+<!-- ==========================================================================
+     Top Tagline Bar (Section 4 Requirement)
+     ========================================================================== -->
+<div class="top-tagline-bar">
+  <div>
+    <span>☀️ <b>HARVESTIQ</b> • Smart Solar Cold Storage: <i>"Intelligent last-mile preservation for fresh produce"</i></span>
+  </div>
+  <div>
+    <span>📍 North Eastern Region (NER) Rural Cluster • Storage Unit <b>CS-001</b></span>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     Top App Header & Navigation
+     ========================================================================== -->
+<header class="app-header">
+  <div class="brand-wrapper">
+    <div class="brand-icon">❄️</div>
+    <div>
+      <div class="brand-title">
+        <span>HarvestIQ</span>
+        <span class="brand-tag" style="background:#087443;color:#fff;display:inline-flex;align-items:center;gap:4px">
+          <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#4ade80;animation:cardAlertPulse 1.8s infinite"></span>
+          DEMO MODE
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 Clean Navigation Tabs (Desktop) -->
+  <nav class="desktop-nav">
+    <button class="active" id="dnav-dashboard" onclick="showPage('dashboard')">
+      <span>🏠</span> <span data-i18n="navDashboard">Dashboard</span>
+    </button>
+    <button id="dnav-monitor" onclick="showPage('monitor')">
+      <span>📊</span> <span data-i18n="navMonitor">Storage Monitor</span>
+    </button>
+    <button id="dnav-alerts" onclick="showPage('alerts')">
+      <span>🔔</span> <span data-i18n="navAlerts">Alerts</span>
+    </button>
+    <button id="dnav-produce" onclick="showPage('produce')">
+      <span>📦</span> <span data-i18n="navProduce">Produce</span>
+    </button>
+    <button id="dnav-system" onclick="showPage('system')">
+      <span>⚙️</span> <span data-i18n="navSystem">System</span>
+    </button>
+    <button id="dnav-remote" onclick="showPage('remote')">
+      <span>🎛️</span> <span data-i18n="navRemote">Remote Control</span>
+    </button>
+    <button id="dnav-demo" onclick="showPage('demo')">
+      <span>🧪</span> <span data-i18n="navDemo">Demo Center</span>
+    </button>
+  </nav>
+
+  <div class="header-controls">
+    <!-- Prominent Language Selector (11 North Eastern Region Languages) -->
+    <div class="lang-selector-box" title="Select your preferred North Eastern language">
+      <span>🌐</span>
+      <select id="globalLangSelect" onchange="changeLanguage(this.value)" aria-label="Language selector">
+        <option value="en">English</option>
+        <option value="as">অসমীয়া (Assamese)</option>
+        <option value="bn">বাংলা (Bengali)</option>
+        <option value="brx">बड़ो (Bodo)</option>
+        <option value="mni">মৈতৈলোন্ (Manipuri)</option>
+        <option value="kh">Khasi</option>
+        <option value="garo">A·chik (Garo)</option>
+        <option value="lus">Mizo ṭawng</option>
+        <option value="kok">Kokborok</option>
+        <option value="ne">नेपाली (Nepali)</option>
+        <option value="hi">हिन्दी (Hindi)</option>
+      </select>
+    </div>
+
+    <!-- Active Stored Crop Pill -->
+    <div class="crop-badge-header" onclick="showPage('produce')" title="Current stored crop">
+      <span id="headerCropIcon">🍅</span>
+      <span id="headerCropName">Tomato</span>
+    </div>
+
+    <!-- Notifications Pill -->
+    <div class="notifications-pill" onclick="showPage('alerts')" id="headerAlertPill">
+      <span>🔔</span>
+      <span id="headerAlertCount">0</span>
+    </div>
+
+    <!-- Farmer Profile Avatar -->
+    <div class="user-avatar" title="Farmer Profile • Rural NER Unit CS-001">👨‍🌾</div>
+  </div>
+</header>
+
+<div class="app">
+  <main>
+    <!-- ==========================================================================
+         TAB 1: MAIN DASHBOARD
+         ========================================================================== -->
+    <section id="page-dashboard" class="page active">
+      <div class="welcome-banner">
+        <div>
+          <h1 data-i18n="welcomeTitle">Good morning, Farmer 👋</h1>
+          <p><span data-i18n="unitLabel">Cold Storage Unit</span> <b>CS-001</b> · <span data-i18n="lastUpdatedJustNow">Live Telemetry Active</span></p>
+        </div>
+        <div class="sim-indicator">
+          <div class="pulse-dot"></div>
+          <span id="simModeText" data-i18n="liveSimulationRunning">Real-time Simulation Active</span>
+        </div>
+      </div>
+
+      <!-- Main Hero Storage Condition Card (Section 5) -->
+      <div class="hero-condition" id="heroCondition">
+        <div>
+          <span class="condition-badge" id="conditionBadge">🟢 OPTIMAL</span>
+          <h2 id="heroTitle" data-i18n="heroSafeTitle">Your produce is currently stored under suitable conditions.</h2>
+          <p id="heroSubtitle" data-i18n="heroSafeSubtitle">Temperature and humidity are within recommended parameters. Peltier thermoelectric cooling is maintaining thermal stability.</p>
+        </div>
+        <div class="hero-icon-wrap" id="heroIcon">❄️</div>
+      </div>
+
+      <!-- Live Sensor Cards (Section 6: 7 Cards) -->
+      <div class="section-header">
+        <div class="section-title">
+          <span>📡</span>
+          <span data-i18n="liveStorageMetrics">Live Sensor Monitoring</span>
+        </div>
+        <span class="section-subtitle" data-i18n="simValuesNotice">Values simulated for SIH demonstration</span>
+      </div>
+
+      <div class="sensor-cards-grid">
+        <!-- 1. TEMPERATURE CARD -->
+        <div class="sensor-card" id="cardTemp">
+          <div class="card-top">
+            <div class="card-label" data-i18n="temperature">Temperature</div>
+            <div class="card-emoji">🌡️</div>
+          </div>
+          <div class="card-value" id="valTemp">6.4 °C</div>
+          <div class="card-footer">
+            <span class="card-sub"><span data-i18n="targetRange">Target Range</span>: <b id="valTargetRange">5.0 – 7.0 °C</b></span>
+            <span class="status-pill good" id="badgeTemp" data-i18n="statusNormal">Normal</span>
+          </div>
+        </div>
+
+        <!-- 2. HUMIDITY CARD -->
+        <div class="sensor-card" id="cardHum">
+          <div class="card-top">
+            <div class="card-label" data-i18n="humidity">Humidity</div>
+            <div class="card-emoji">💧</div>
+          </div>
+          <div class="card-value" id="valHum">84 %</div>
+          <div class="card-footer">
+            <span class="card-sub"><span data-i18n="targetRange">Target Range</span>: <b id="valHumTargetRange">80 – 90 %</b></span>
+            <span class="status-pill good" id="badgeHum" data-i18n="statusNormal">Normal</span>
+          </div>
+        </div>
+
+        <!-- 3. BATTERY CARD WITH PROGRESS BAR -->
+        <div class="sensor-card" id="cardBat">
+          <div class="card-top">
+            <div class="card-label" data-i18n="batteryLevel">Battery Level</div>
+            <div class="card-emoji">🔋</div>
+          </div>
+          <div class="card-value" id="valBat">78 %</div>
+          <div class="battery-bar-container">
+            <div class="battery-bar-fill" id="valBatBar" style="width:78%"></div>
+          </div>
+          <div class="card-footer">
+            <span class="card-sub" id="valBatFlow">Solar Charging</span>
+            <span class="status-pill good" id="badgeBat" data-i18n="statusNormal">Normal</span>
+          </div>
+        </div>
+
+        <!-- 4. SOLAR POWER CARD -->
+        <div class="sensor-card" id="cardSolar">
+          <div class="card-top">
+            <div class="card-label" data-i18n="solarPower">Solar Power</div>
+            <div class="card-emoji">☀️</div>
+          </div>
+          <div class="card-value" id="valSolar">0.82 kW</div>
+          <div class="card-footer">
+            <span class="card-sub" id="valSolarSource">Source: Solar PV Array</span>
+            <span class="status-pill good" id="badgeSolar" data-i18n="solarActive">Solar Active</span>
+          </div>
+        </div>
+
+        <!-- 5. PELTIER COOLING CARD -->
+        <div class="sensor-card" id="cardCooling">
+          <div class="card-top">
+            <div class="card-label" data-i18n="peltierCooling">Peltier Cooling</div>
+            <div class="card-emoji">❄️</div>
+          </div>
+          <div class="card-value" id="valCooling">PELTIER: ON</div>
+          <div class="card-footer">
+            <span class="card-sub" id="valCoolingSource">Source: Solar Powered</span>
+            <span class="status-pill good" id="badgeCooling">Active</span>
+          </div>
+        </div>
+
+        <!-- 6. POWER SYSTEM CARD -->
+        <div class="sensor-card" id="cardPower">
+          <div class="card-top">
+            <div class="card-label" data-i18n="powerSource">Power Source</div>
+            <div class="card-emoji">⚡</div>
+          </div>
+          <div class="card-value" id="valPower" style="font-size:20px;margin-top:14px">MAIN POWER: AVAILABLE</div>
+          <div class="card-footer">
+            <span class="card-sub" id="valPowerSub">Grid + Solar Online</span>
+            <span class="status-pill good" id="badgePower">Available</span>
+          </div>
+        </div>
+
+        <!-- 7. DOOR SENSOR CARD -->
+        <div class="sensor-card" id="cardDoor">
+          <div class="card-top">
+            <div class="card-label" data-i18n="doorStatus">Storage Door</div>
+            <div class="card-emoji">🚪</div>
+          </div>
+          <div class="card-value" id="valDoor">DOOR CLOSED</div>
+          <div class="card-footer">
+            <span class="card-sub" id="valDoorSub">Magnetic Sensor: Sealed</span>
+            <span class="status-pill good" id="badgeDoor">Closed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Action Shortcuts for SIH Judges -->
+      <div class="section-header">
+        <div class="section-title">
+          <span>⚡</span>
+          <span data-i18n="quickDemoBar">Quick Judge Demonstration Actions</span>
+        </div>
+        <button class="action-btn secondary" onclick="showPage('demo')" style="padding:6px 12px;font-size:12px" data-i18n="openFullDemoCenter">Open Full Demo Center →</button>
+      </div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="action-btn secondary" onclick="triggerScenario('tempRise')">🌡️ <span data-i18n="btnSimTempFluctuation">Simulate Temp Fluctuation</span></button>
+        <button class="action-btn secondary" onclick="triggerScenario('batLow')">🪫 <span data-i18n="btnSimLowBattery">Simulate Low Battery (25%)</span></button>
+        <button class="action-btn secondary" onclick="triggerScenario('batRestore')">🔋 <span data-i18n="btnRestoreBattery">Restore Battery (78%)</span></button>
+        <button class="action-btn secondary" onclick="triggerScenario('powerFail')">⚡ <span data-i18n="btnSimPowerFailure">Simulate Power Failure</span></button>
+        <button class="action-btn secondary" onclick="triggerScenario('powerRestore')">🔌 <span data-i18n="btnRestorePower">Restore Power</span></button>
+        <button class="action-btn secondary" onclick="triggerScenario('multipleIssues')">🚨 <span data-i18n="btnSimMultipleIssues">Simulate Multiple Issues</span></button>
+        <button class="action-btn" onclick="triggerScenario('reset')">🔄 <span data-i18n="btnResetAll">Reset All to Normal</span></button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         TAB 2: STORAGE MONITOR (DEDICATED SECTION WITH HISTORY CHARTS)
+         ========================================================================== -->
+    <section id="page-monitor" class="page">
+      <div class="welcome-banner">
+        <div>
+          <h1 data-i18n="monitorTitle">📊 Storage Environmental Monitor</h1>
+          <p data-i18n="monitorSubtitle">Real-time environmental trend analysis for temperature and relative humidity inside unit CS-001.</p>
+        </div>
+      </div>
+
+      <div class="chart-panel">
+        <div class="chart-header">
+          <div class="section-title" style="margin:0">
+            <span>📈</span>
+            <span data-i18n="storageTrends">Storage Temperature & Humidity Trends</span>
+          </div>
+          <div class="chart-legend">
+            <div class="legend-item"><div class="legend-dot temp-dot"></div><span data-i18n="temperature">Temperature</span> (°C)</div>
+            <div class="legend-item"><div class="legend-dot hum-dot"></div><span data-i18n="humidity">Humidity</span> (%)</div>
+          </div>
+        </div>
+        <div class="chart-canvas-wrap">
+          <canvas id="chartCanvas"></canvas>
+        </div>
+      </div>
+
+      <div class="section-header" style="margin-top:28px">
+        <div class="section-title">
+          <span>📋</span>
+          <span data-i18n="monitorMetricsTitle">Environmental Statistics (Today)</span>
+        </div>
+        <span class="section-subtitle">Auto-updated via ESP32 telemetry</span>
+      </div>
+
+      <div class="sensor-cards-grid">
+        <div class="sensor-card">
+          <div class="card-label">Avg Temperature</div>
+          <div class="card-value" id="valAvgTemp">6.2 °C</div>
+          <span class="card-sub">Min: 5.8 °C · Max: 6.8 °C</span>
+        </div>
+        <div class="sensor-card">
+          <div class="card-label">Avg Humidity</div>
+          <div class="card-value" id="valAvgHum">84.5 %</div>
+          <span class="card-sub">Min: 81 % · Max: 88 %</span>
+        </div>
+        <div class="sensor-card">
+          <div class="card-label">Peltier Duty Cycle</div>
+          <div class="card-value" id="valDutyCycle">64 %</div>
+          <span class="card-sub">Thermoelectric efficiency optimal</span>
+        </div>
+        <div class="sensor-card">
+          <div class="card-label">Est. Battery Reserve</div>
+          <div class="card-value" id="valEstRuntime">14.8 hrs</div>
+          <span class="card-sub">At current Peltier power draw</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         TAB 3: ALERTS & COMPLETE ALERT HISTORY (SECTION 16 & 22)
+         ========================================================================== -->
+    <section id="page-alerts" class="page">
+      <div class="welcome-banner">
+        <div>
+          <h1 data-i18n="alertCenterTitle">🔔 Alert Center & Historical Log</h1>
+          <p data-i18n="alertCenterSubtitle">Active alerts and historical event logs for environmental deviations, battery states, and power failures.</p>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button class="action-btn secondary" onclick="triggerScenario('tempRise')" data-i18n="testAlertBtn">Test Alert</button>
+          <button class="action-btn" onclick="clearAllAlerts()" data-i18n="clearAlertsBtn">Clear All Alerts</button>
+        </div>
+      </div>
+
+      <!-- Active Alerts List -->
+      <div class="section-header">
+        <div class="section-title">
+          <span>⚠️</span>
+          <span data-i18n="activeAlertsTitle">Active System Alerts</span>
+        </div>
+      </div>
+      <div class="alerts-container" id="alertsList">
+        <!-- Injected dynamically by script.js -->
+      </div>
+
+      <!-- Complete Alert History Table (Section 22) -->
+      <div class="section-header" style="margin-top:28px">
+        <div class="section-title">
+          <span>📜</span>
+          <span data-i18n="alertHistoryTitle">Complete Alert History Log</span>
+        </div>
+        <span class="section-subtitle">Simulated event history for evaluation</span>
+      </div>
+
+      <div class="alert-history-card">
+        <table class="alert-table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Alert Type</th>
+              <th>Current Value</th>
+              <th>Severity</th>
+              <th>Description</th>
+              <th>Recommended Action</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="alertHistoryTableBody">
+            <!-- Populated dynamically by script.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         TAB 4: PRODUCE SELECTION (SECTION 14)
+         ========================================================================== -->
+    <section id="page-produce" class="page">
+      <div class="welcome-banner">
+        <div>
+          <h1 data-i18n="myProduceTitle">📦 My Stored Produce</h1>
+          <p data-i18n="myProduceSubtitle">Select stored vegetable to automatically set recommended cooling and humidity levels.</p>
+        </div>
+      </div>
+
+      <div class="demo-banner">
+        <div>
+          <b>ℹ️ <span data-i18n="paramNoticeTitle">Recommended / Demo Storage Parameters</span></b>
+          <p data-i18n="paramNoticeText">These setpoints represent standard agricultural storage targets for demonstration purposes. They are clearly identified as simulation reference parameters.</p>
+        </div>
+      </div>
+
+      <div id="storedCropsSummary" style="font-size: 14px; font-weight: 700; color: var(--g-dark); background: #f0f7f2; border: 1px solid var(--g-light); padding: 10px 16px; border-radius: var(--radius-sm); margin: 14px 0 16px;">
+        Stored Crops (1): Tomato
+      </div>
+
+      <div class="produce-grid">
+        <!-- 1. Tomato -->
+        <div class="produce-card selected" id="cropCard-tomato" onclick="selectCrop('tomato')">
+          <div class="produce-header">
+            <div class="produce-icon">🍅</div>
+            <div class="produce-title" data-i18n="cropTomato">Tomato</div>
+          </div>
+          <div class="produce-details">
+            <span><b data-i18n="targetTempLabel">Recommended Temp</b>: 10.0 °C (Range 8–12°C)</span>
+            <span><b data-i18n="targetHumLabel">Recommended Humidity</b>: 85–90 %</span>
+            <span><b data-i18n="storedAmount">Stored Volume</b>: 120 kg (3 days)</span>
+          </div>
+          <div class="produce-condition-tag" data-i18n="conditionSafe">🟢 Storage Condition: Optimal</div>
+        </div>
+
+        <!-- 2. Cabbage -->
+        <div class="produce-card" id="cropCard-cabbage" onclick="selectCrop('cabbage')">
+          <div class="produce-header">
+            <div class="produce-icon">🥬</div>
+            <div class="produce-title" data-i18n="cropCabbage">Cabbage</div>
+          </div>
+          <div class="produce-details">
+            <span><b data-i18n="targetTempLabel">Recommended Temp</b>: 2.0 °C (Range 1–4°C)</span>
+            <span><b data-i18n="targetHumLabel">Recommended Humidity</b>: 90–95 %</span>
+            <span><b data-i18n="storedAmount">Stored Volume</b>: 80 kg (2 days)</span>
+          </div>
+          <div class="produce-condition-tag" data-i18n="conditionSafe">🟢 Storage Condition: Optimal</div>
+        </div>
+
+        <!-- 3. Beans -->
+        <div class="produce-card" id="cropCard-beans" onclick="selectCrop('beans')">
+          <div class="produce-header">
+            <div class="produce-icon">🫘</div>
+            <div class="produce-title" data-i18n="cropBeans">Beans</div>
+          </div>
+          <div class="produce-details">
+            <span><b data-i18n="targetTempLabel">Recommended Temp</b>: 6.0 °C (Range 4–7°C)</span>
+            <span><b data-i18n="targetHumLabel">Recommended Humidity</b>: 85–90 %</span>
+            <span><b data-i18n="storedAmount">Stored Volume</b>: 60 kg (2 days)</span>
+          </div>
+          <div class="produce-condition-tag" data-i18n="conditionSafe">🟢 Storage Condition: Optimal</div>
+        </div>
+
+        <!-- 4. Leafy Vegetables -->
+        <div class="produce-card" id="cropCard-leafy" onclick="selectCrop('leafy')">
+          <div class="produce-header">
+            <div class="produce-icon">🥦</div>
+            <div class="produce-title" data-i18n="cropLeafy">Leafy Vegetables</div>
+          </div>
+          <div class="produce-details">
+            <span><b data-i18n="targetTempLabel">Recommended Temp</b>: 3.0 °C (Range 2–5°C)</span>
+            <span><b data-i18n="targetHumLabel">Recommended Humidity</b>: 90–95 %</span>
+            <span><b data-i18n="storedAmount">Stored Volume</b>: 40 kg (1 day)</span>
+          </div>
+          <div class="produce-condition-tag" data-i18n="conditionSafe">🟢 Storage Condition: Optimal</div>
+        </div>
+
+        <!-- 5. Chilli -->
+        <div class="produce-card" id="cropCard-chilli" onclick="selectCrop('chilli')">
+          <div class="produce-header">
+            <div class="produce-icon">🌶️</div>
+            <div class="produce-title" data-i18n="cropChilli">Chilli</div>
+          </div>
+          <div class="produce-details">
+            <span><b data-i18n="targetTempLabel">Recommended Temp</b>: 8.0 °C (Range 7–10°C)</span>
+            <span><b data-i18n="targetHumLabel">Recommended Humidity</b>: 80–85 %</span>
+            <span><b data-i18n="storedAmount">Stored Volume</b>: 45 kg (1 day)</span>
+          </div>
+          <div class="produce-condition-tag" data-i18n="conditionSafe">🟢 Storage Condition: Optimal</div>
+        </div>
+
+        <!-- 6. Other Produce -->
+        <div class="produce-card" id="cropCard-other" onclick="selectCrop('other')">
+          <div class="produce-header">
+            <div class="produce-icon">🥕</div>
+            <div class="produce-title" data-i18n="cropOther">Other Horticultural Produce</div>
+          </div>
+          <div class="produce-details">
+            <span><b data-i18n="targetTempLabel">Recommended Temp</b>: 5.0 °C (General Produce)</span>
+            <span><b data-i18n="targetHumLabel">Recommended Humidity</b>: 85–90 %</span>
+            <span><b data-i18n="storedAmount">Stored Volume</b>: 50 kg (General)</span>
+          </div>
+          <div class="produce-condition-tag" data-i18n="conditionSafe">🟢 Storage Condition: Optimal</div>
+        </div>
+      </div>
+
+      <div style="margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px">
+        <div class="section-title" style="margin-bottom:8px">
+          <span>💡</span>
+          <span data-i18n="farmerStorageAdvice">Farmer Storage Guidance</span>
+        </div>
+        <p style="font-size:13.5px;color:var(--muted)" data-i18n="farmerStorageAdviceText">
+          The Peltier thermoelectric cooling unit automatically switches on when internal temperature rises 0.5°C above your selected crop target. Keep the magnetic storage door closed to conserve solar battery reserve.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         TAB 5: SYSTEM ARCHITECTURE & HARDWARE STATUS (SECTION 19 & 23)
+         ========================================================================== -->
+    <section id="page-system" class="page">
+      <div class="welcome-banner">
+        <div>
+          <h1 data-i18n="systemInfoTitle">⚙️ System Architecture & Hardware Telemetry</h1>
+          <p data-i18n="systemInfoSubtitle">Hardware specifications and edge architecture designed for North Eastern rural farm clusters.</p>
+        </div>
+      </div>
+
+      <!-- Flowchart 1: Power & Cooling Architecture -->
+      <div class="tech-flow-card">
+        <div class="section-title">
+          <span>⚡</span>
+          <span data-i18n="powerCoolingFlow">Solar Power & Peltier Cooling Flow</span>
+        </div>
+        <p style="font-size:13px;color:var(--muted);margin-top:4px" data-i18n="powerCoolingFlowDesc">
+          Pure solid-state thermoelectric architecture utilizing Peltier cold plates (TEC1-12706) with heat sinks and brushless DC fans — zero compressors, zero chemical refrigerants, ideal for remote off-grid rural operation.
+        </p>
+
+        <div class="tech-flow-diagram">
+          <div class="tech-node">
+            <b>SOLAR PANEL</b>
+            <small>150W–200W Mono PV</small>
+          </div>
+          <div class="tech-arrow">↓</div>
+          <div class="tech-node">
+            <b>CHARGE CONTROLLER</b>
+            <small>MPPT Solar Regulation</small>
+          </div>
+          <div class="tech-arrow">↓</div>
+          <div class="tech-node">
+            <b>BATTERY</b>
+            <small>12V 40Ah LiFePO₄</small>
+          </div>
+          <div class="tech-arrow">↓</div>
+          <div class="tech-node">
+            <b>PELTIER COOLING + FAN</b>
+            <small>Solid-State Cold Plate</small>
+          </div>
+        </div>
+
+        <!-- Flowchart 2: Sensors to ESP32 to Control to Dashboard -->
+        <div class="section-title" style="margin-top:24px">
+          <span>📡</span>
+          <span data-i18n="sensorFlowTitle">Sensor Telemetry & IoT Control Flow</span>
+        </div>
+        <div class="tech-flow-diagram">
+          <div class="tech-node">
+            <b>SENSORS</b>
+            <small>Temp, Hum, Door, Energy</small>
+          </div>
+          <div class="tech-arrow">↓</div>
+          <div class="tech-node">
+            <b>ESP32 MICROCONTROLLER</b>
+            <small>Edge Sensor Processing</small>
+          </div>
+          <div class="tech-arrow">↓</div>
+          <div class="tech-node">
+            <b>AUTOMATIC CONTROL</b>
+            <small>PWM Peltier & Fan Regulation</small>
+          </div>
+          <div class="tech-arrow">↓</div>
+          <div class="tech-node">
+            <b>COLDCARE DASHBOARD</b>
+            <small>Wi-Fi / Farmer Alerts</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Hardware & Device Status Table (Section 23) -->
+      <div class="tech-flow-card">
+        <div class="section-header" style="margin:0 0 12px">
+          <div class="section-title">
+            <span>🔌</span>
+            <span>Live Device & Sensor Status</span>
+          </div>
+          <span class="section-subtitle">Prototype / simulated device states</span>
+        </div>
+
+        <table class="hardware-table">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Hardware Model / Protocol</th>
+              <th>Connection Status</th>
+              <th>Live Telemetry</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>ESP32 Microcontroller</b></td>
+              <td>Espressif ESP32-WROOM-32 (Dual Core 240MHz)</td>
+              <td><span class="status-pill good">Connected</span></td>
+              <td>Edge loop cycle: 100ms · Firmware v2.1</td>
+            </tr>
+            <tr>
+              <td><b>Temperature Sensor</b></td>
+              <td>DS18B20 High-Precision Waterproof Probe</td>
+              <td><span class="status-pill good">Online</span></td>
+              <td id="sysTempReading">6.4 °C (±0.5°C accuracy)</td>
+            </tr>
+            <tr>
+              <td><b>Humidity Sensor</b></td>
+              <td>DHT22 (AM2302) Capacitive Sensor</td>
+              <td><span class="status-pill good">Online</span></td>
+              <td id="sysHumReading">84 % Relative Humidity</td>
+            </tr>
+            <tr>
+              <td><b>Door Sensor</b></td>
+              <td>Magnetic Reed Switch (Cabinet Seal)</td>
+              <td><span class="status-pill good">Online</span></td>
+              <td id="sysDoorReading">Cabinet Door Closed</td>
+            </tr>
+            <tr>
+              <td><b>Energy Sensor</b></td>
+              <td>INA219 I2C High-Side Current & Power Monitor</td>
+              <td><span class="status-pill good">Online</span></td>
+              <td id="sysEnergyReading">12.8V · 4.2A · 53.7W Draw</td>
+            </tr>
+            <tr>
+              <td><b>Peltier Cooling Module</b></td>
+              <td>TEC1-12706 Thermoelectric + DC Heat Sink Fan</td>
+              <td><span class="status-pill good" id="sysPeltierStatus">Operational</span></td>
+              <td id="sysPeltierReading">Peltier Active · PWM 85%</td>
+            </tr>
+            <tr>
+              <td><b>LiFePO₄ Battery Bank</b></td>
+              <td>12V 40Ah Deep-Cycle Lithium Iron Phosphate</td>
+              <td><span class="status-pill good" id="sysBatStatus">Connected</span></td>
+              <td id="sysBatReading">78 % State of Charge (SOC)</td>
+            </tr>
+            <tr>
+              <td><b>Solar PV Array</b></td>
+              <td>200W Monocrystalline PV Panel + MPPT</td>
+              <td><span class="status-pill good" id="sysSolarStatus">Connected</span></td>
+              <td id="sysSolarReading">0.82 kW Generation Active</td>
+            </tr>
+            <tr>
+              <td><b>Wi-Fi Local Gateway</b></td>
+              <td>802.11 b/g/n (Wi-Fi Edge Hotspot / Cloud Telemetry)</td>
+              <td><span class="status-pill good">Connected</span></td>
+              <td>IP: 192.168.4.1 (Local Web Interface)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Prototype Disclaimer (Section 29) -->
+      <div class="tech-flow-card">
+        <div class="section-title">
+          <span>⚠️</span>
+          <span>Prototype Disclaimer & Scientific Transparency</span>
+        </div>
+        <p style="font-size:13.5px;color:var(--muted);margin-top:6px">
+          This website functions as a fully interactive public prototype demonstration for the Smart India Hackathon (SIH 2026). Environmental, power, and battery figures reflect mathematical simulation models designed to showcase edge IoT alerting and farmer safety protocols. No claims of experimentally validated commercial deployment are made.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         TAB 6: COLDCARE REMOTE CONTROL
+         ========================================================================== -->
+    <section id="page-remote" class="page">
+      <div class="welcome-banner">
+        <div>
+          <h1 data-i18n="remoteControlTitle">🎛️ COLDCARE REMOTE CONTROL</h1>
+          <p data-i18n="remoteControlSubtitle">Agricultural IoT Telemetry & Thermoelectric Chamber Control Panel</p>
+        </div>
+        <div class="sim-indicator">
+          <div class="pulse-dot"></div>
+          <span>Edge IoT Active</span>
+        </div>
+      </div>
+
+      <!-- Real-time Dynamic System Status Summary Bar -->
+      <div class="rc-status-summary-bar">
+        <div class="rc-stat-item">
+          <span class="rc-stat-label">Storage Unit</span>
+          <span class="rc-stat-val" id="rcStorageStatus">ONLINE 🟢</span>
+        </div>
+        <div class="rc-stat-item">
+          <span class="rc-stat-label">Current Temp</span>
+          <span class="rc-stat-val" id="rcValTemp">6.4°C</span>
+        </div>
+        <div class="rc-stat-item">
+          <span class="rc-stat-label">Target Temp</span>
+          <span class="rc-stat-val" id="rcValTarget">6.0°C</span>
+        </div>
+        <div class="rc-stat-item">
+          <span class="rc-stat-label">Humidity</span>
+          <span class="rc-stat-val" id="rcValHum">84%</span>
+        </div>
+        <div class="rc-stat-item">
+          <span class="rc-stat-label">Battery Level</span>
+          <span class="rc-stat-val" id="rcValBat">78%</span>
+        </div>
+        <div class="rc-stat-item">
+          <span class="rc-stat-label">Solar PV</span>
+          <span class="rc-stat-val" id="rcValSolar">Charging Active</span>
+        </div>
+        <div class="rc-stat-item">
+          <span class="rc-stat-label">Peltier Cooling</span>
+          <span class="rc-stat-val"><span class="status-pill good" id="rcPeltierStatus">ON</span></span>
+        </div>
+        <div class="rc-stat-item">
+          <span class="rc-stat-label">Cold Side</span>
+          <span class="rc-stat-val"><span class="status-pill good" id="rcColdSideStatus">ACTIVE</span></span>
+        </div>
+        <div class="rc-stat-item">
+          <span class="rc-stat-label">Chamber Fan</span>
+          <span class="rc-stat-val"><span class="status-pill good" id="rcChamberFanStatus">ON</span></span>
+        </div>
+        <div class="rc-stat-item">
+          <span class="rc-stat-label">Chamber Fan Spd</span>
+          <span class="rc-stat-val" id="rcChamberFanSpeed">MEDIUM</span>
+        </div>
+        <div class="rc-stat-item">
+          <span class="rc-stat-label">Hot Side</span>
+          <span class="rc-stat-val"><span class="status-pill good" id="rcHotSideStatus">ACTIVE</span></span>
+        </div>
+        <div class="rc-stat-item">
+          <span class="rc-stat-label">Hot-Side Temp</span>
+          <span class="rc-stat-val" id="rcHotSideTemp">42.0°C</span>
+        </div>
+        <div class="rc-stat-item">
+          <span class="rc-stat-label">Dissipation Fan</span>
+          <span class="rc-stat-val" id="rcHeatDissipationFan">HIGH</span>
+        </div>
+        <div class="rc-stat-item">
+          <span class="rc-stat-label">Control Mode</span>
+          <span class="rc-stat-val" id="rcMode">🟢 AUTO</span>
+        </div>
+        <div class="rc-stat-item">
+          <span class="rc-stat-label">Timer Status</span>
+          <span class="rc-stat-val" id="rcTimer">Not Set</span>
+        </div>
+        <div class="rc-stat-item">
+          <span class="rc-stat-label">Condition</span>
+          <span class="rc-stat-val" id="rcCondition">OPTIMAL 🟢</span>
+        </div>
+      </div>
+
+      <!-- Hot-Side Elevated Temperature Notice (Hidden until >= 55°C) -->
+      <div id="hotSideElevatedNotice" style="display:none;background:#fff5f5;border:2px solid var(--red);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:18px;animation:cardAlertPulse 2s infinite">
+        <b style="color:var(--red);font-size:14.5px">⚠️ HOT-SIDE TEMPERATURE ELEVATED (55°C)</b>
+        <p style="font-size:13px;color:var(--ink);margin-top:4px">
+          Peltier hot-side heatsink temperature is high. <b>Heat Dissipation Fan automatically boosted to HIGH</b> to remove excess heat outside. Storage chamber cooling remains safe and sealed.
+        </p>
+      </div>
+
+      <!-- Master System Power Switch Card (ALWAYS Interactive & Clickable - Never Inactivated) -->
+      <div class="rc-master-card" id="rcMasterPowerCard">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="width:48px;height:48px;border-radius:12px;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:24px;border:1px solid #c8e6c9">
+            ⚡
+          </div>
+          <div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <h3 style="margin:0;font-size:16.5px;font-weight:800;color:var(--g-dark)" data-i18n="systemPowerTitle">MASTER SYSTEM POWER</h3>
+              <span id="masterPowerStatusBadge" class="status-pill good">SYSTEM ACTIVE 🟢</span>
+            </div>
+            <p style="margin:4px 0 0;font-size:13px;color:var(--muted)">Main electricity bus and master operational switch for cold storage thermoelectric actuators.</p>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <button class="rc-btn active" id="btnSystemOn" onclick="setSystemPower(true)" data-i18n="btnSystemOn" style="min-width:130px;padding:12px 18px;font-size:13.5px">SYSTEM ON</button>
+          <button class="rc-btn btn-danger" id="btnSystemOff" onclick="setSystemPower(false)" data-i18n="btnSystemOff" style="min-width:130px;padding:12px 18px;font-size:13.5px">SYSTEM OFF</button>
+        </div>
+      </div>
+
+      <!-- Standby Warning Banner (Visible only when systemPower is FALSE) -->
+      <div id="rcStandbyNotice" class="rc-standby-banner" style="display:none">
+        <span style="font-size:26px">⚠️</span>
+        <div>
+          <b style="color:#b45309;font-size:15px">Cold Storage System is Powered OFF (Standby Mode)</b>
+          <p style="font-size:13px;color:var(--ink);margin:4px 0 0">
+            Produce cooling and air circulation are paused. Temperature & telemetry monitoring continue uninterrupted. Click <b>MASTER SYSTEM POWER ON</b> above to resume active cooling.
+          </p>
+        </div>
+      </div>
+
+      <!-- Interactive Controls Container (Inactivated if Master System Power is OFF) -->
+      <div id="rcInteractiveControls">
+        <!-- Remote Control Grid -->
+        <div class="rc-grid">
+          <!-- 1. TEMPERATURE CONTROL -->
+          <div class="rc-card">
+            <div class="rc-card-header">
+              <span class="rc-card-title"><span>🌡️</span> <span data-i18n="targetTemp">TEMPERATURE CONTROL</span></span>
+              <span class="status-pill good">Live Synchronized</span>
+            </div>
+            <p style="font-size:12.5px;color:var(--muted)">Adjust target cooling temperature for produce preservation.</p>
+
+            <div class="rc-stepper-wrap">
+              <button class="rc-stepper-btn" onclick="adjustTargetTemp(-0.5)" aria-label="Decrease target temperature">−</button>
+              <div class="rc-stepper-val" id="rcTargetDisplay">6.0°C</div>
+              <button class="rc-stepper-btn" onclick="adjustTargetTemp(0.5)" aria-label="Increase target temperature">+</button>
+            </div>
+
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:11px;font-weight:700;color:var(--muted);margin-bottom:4px">
+                <span>2.0°C</span>
+                <span>Target Setpoint Slider (2°C – 15°C)</span>
+                <span>15.0°C</span>
+              </div>
+              <input type="range" class="rc-slider" id="rcTargetSlider" min="2" max="15" step="0.5" value="6" oninput="setTargetTempFromSlider(this.value)" aria-label="Target Temperature Slider">
+            </div>
+          </div>
+
+          <!-- 2. PELTIER COOLING CONTROL -->
+          <div class="rc-card">
+            <div class="rc-card-header">
+              <span class="rc-card-title"><span>❄️</span> <span>PELTIER / THERMOELECTRIC COOLING</span></span>
+              <span class="status-pill good">Solid-State</span>
+            </div>
+            <p style="font-size:12.5px;color:var(--muted)">Solid-state TEC1-12706 thermoelectric cold plate power & PWM drive intensity.</p>
+
+            <div style="margin-top:10px">
+              <span style="font-size:12px;font-weight:700;color:var(--muted)">Peltier Power Switch:</span>
+              <div class="rc-btn-group">
+                <button class="rc-btn active" id="btnPeltierOn" onclick="setPeltierPower(true)">ON</button>
+                <button class="rc-btn btn-danger" id="btnPeltierOff" onclick="setPeltierPower(false)">OFF</button>
+              </div>
+            </div>
+
+            <div style="margin-top:14px">
+              <span style="font-size:12px;font-weight:700;color:var(--muted)" data-i18n="coolingIntensityTitle">COOLING INTENSITY</span>:
+              <div class="rc-btn-group">
+                <button class="rc-btn" id="btnIntensityLOW" onclick="setCoolingIntensity('LOW')">LOW</button>
+                <button class="rc-btn active" id="btnIntensityMEDIUM" onclick="setCoolingIntensity('MEDIUM')">MEDIUM</button>
+                <button class="rc-btn" id="btnIntensityHIGH" onclick="setCoolingIntensity('HIGH')">HIGH</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. CHAMBER AIR CIRCULATION FAN -->
+          <div class="rc-card">
+            <div class="rc-card-header">
+              <span class="rc-card-title"><span>🌀</span> <span>CHAMBER AIR CIRCULATION FAN</span></span>
+              <span class="status-pill good">Internal Circulation</span>
+            </div>
+            <p style="font-size:12.5px;color:var(--muted)">Circulates cooled air evenly <b>inside</b> the vegetable storage chamber.</p>
+
+            <div style="margin-top:10px">
+              <span style="font-size:12px;font-weight:700;color:var(--muted)">Fan Power Switch:</span>
+              <div class="rc-btn-group">
+                <button class="rc-btn active" id="btnChamberFanOn" onclick="setChamberFan(true)">ON</button>
+                <button class="rc-btn btn-danger" id="btnChamberFanOff" onclick="setChamberFan(false)">OFF</button>
+              </div>
+            </div>
+
+            <div style="margin-top:14px">
+              <span style="font-size:12px;font-weight:700;color:var(--muted)" data-i18n="chamberFanSpeed">CHAMBER FAN SPEED</span>:
+              <div class="rc-btn-group">
+                <button class="rc-btn" id="btnFanSpeedLOW" onclick="setChamberFanSpeed('LOW')">LOW</button>
+                <button class="rc-btn active" id="btnFanSpeedMEDIUM" onclick="setChamberFanSpeed('MEDIUM')">MEDIUM</button>
+                <button class="rc-btn" id="btnFanSpeedHIGH" onclick="setChamberFanSpeed('HIGH')">HIGH</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. HOT SIDE — HEAT DISSIPATION & FAN -->
+          <div class="rc-card">
+            <div class="rc-card-header">
+              <span class="rc-card-title"><span>🔥</span> <span>HOT SIDE — HEAT DISSIPATION</span></span>
+              <span class="status-pill warn">Exterior Heat Removal</span>
+            </div>
+            <p style="font-size:12.5px;color:var(--muted)">
+              The hot side removes heat generated by the thermoelectric module and dissipates it <b>outside</b> the storage chamber. <b>Never circulates hot air to vegetables.</b>
+            </p>
+
+            <div style="display:flex;justify-content:space-between;align-items:center;background:#fff8f0;border:1px solid #fbd6b0;border-radius:var(--radius-sm);padding:10px 14px;margin:10px 0">
+              <span style="font-size:12.5px;font-weight:700;color:#92400e">Hot-Side Heatsink Temp:</span>
+              <b style="font-size:16px;color:var(--orange)">42.0°C (Safe Range: 35–50°C)</b>
+            </div>
+
+            <div style="margin-top:10px">
+              <span style="font-size:12px;font-weight:700;color:var(--muted)" data-i18n="heatDissipationFanTitle">HEAT DISSIPATION FAN</span>:
+              <div class="rc-btn-group">
+                <button class="rc-btn" id="btnDissipationOFF" onclick="setHeatDissipationFan('OFF')">OFF</button>
+                <button class="rc-btn" id="btnDissipationLOW" onclick="setHeatDissipationFan('LOW')">LOW</button>
+                <button class="rc-btn" id="btnDissipationMEDIUM" onclick="setHeatDissipationFan('MEDIUM')">MEDIUM</button>
+                <button class="rc-btn active" id="btnDissipationHIGH" onclick="setHeatDissipationFan('HIGH')">HIGH</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. THERMOELECTRIC ARCHITECTURE (COLD SIDE VS HOT SIDE) -->
+        <div class="rc-card" style="margin-top:18px">
+          <div class="rc-card-header">
+            <span class="rc-card-title"><span>🔬</span> <span>AIRFLOW & THERMOELECTRIC SIDES (NO HOT AIR TO VEGETABLES)</span></span>
+            <button class="action-btn secondary" style="font-size:12px;padding:6px 12px" onclick="document.getElementById('peltierInfoModal').style.display = document.getElementById('peltierInfoModal').style.display === 'none' ? 'block' : 'none'" data-i18n="peltierExplainerTitle">
+              ℹ️ How Peltier Cooling Works
+            </button>
+          </div>
+
+          <div id="peltierInfoModal" style="display:none;background:#f0f8f3;border:1px solid #bce1ca;border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:14px;font-size:13px;color:var(--g-dark)">
+            <b style="display:block;margin-bottom:4px">Thermoelectric Cooling Engineering Principle:</b>
+            The Peltier module creates a cold side and a hot side. The cold side cools the storage chamber, while the hot side releases the generated heat through a heatsink and fan to the outside environment. We never blow hot air onto the vegetables.
+          </div>
+
+          <div class="thermo-sides-grid">
+            <div class="thermo-side-card cold-side">
+              <h4>
+                <span>❄️ COLD SIDE</span>
+                <span class="status-pill good">CHAMBER COOLING</span>
+              </h4>
+              <p><b>Purpose:</b> Direct heat absorption from inside the insulated storage chamber to cool vegetables to preset target temperature.</p>
+              <div style="margin-top:8px;font-size:12px;font-weight:700;color:var(--blue)">
+                Status: ACTIVE · Thermoelectric Absorption
+              </div>
+            </div>
+
+            <div class="thermo-side-card hot-side">
+              <h4>
+                <span>🔥 HOT SIDE</span>
+                <span class="status-pill warn">HEAT DISSIPATION</span>
+              </h4>
+              <p><b>Purpose:</b> Removing heat generated by the Peltier module and dissipating it outside the storage chamber through the aluminum heatsink and DC dissipation fan.</p>
+              <div style="margin-top:8px;font-size:12px;font-weight:700;color:#c2410c">
+                Status: ACTIVE · Dissipated to Outside Air
+              </div>
+            </div>
+          </div>
+
+          <!-- Professional Peltier Flow Schematic -->
+          <div class="peltier-diagram-box">
+            <div style="font-size:13px;font-weight:800;color:var(--g-dark);text-transform:uppercase;letter-spacing:0.5px">
+              Peltier Thermoelectric Solid-State Thermal Architecture
+            </div>
+            <div class="peltier-diagram-flow">
+              <div class="peltier-flow-col col-cold">
+                <span>❄️ <b>COLD SIDE</b></span>
+                <span>↓</span>
+                <span><b>STORAGE CHAMBER</b></span>
+                <span>↓</span>
+                <span>🥦 <b>VEGETABLES</b></span>
+              </div>
+
+              <div class="peltier-flow-col col-center">
+                <span>⚡ <b>PELTIER MODULE</b></span>
+                <span>(TEC1-12706 Solid-State)</span>
+                <span>Peltier Driver PWM</span>
+                <span>DC 12V Solid-State</span>
+              </div>
+
+              <div class="peltier-flow-col col-hot">
+                <span>🔥 <b>HOT SIDE</b></span>
+                <span>↓</span>
+                <span><b>ALUMINUM HEATSINK</b></span>
+                <span>↓</span>
+                <span>💨 <b>HEAT DISSIPATION FAN</b></span>
+                <span>↓</span>
+                <span>🌍 <b>OUTSIDE AIR</b></span>
+              </div>
+            </div>
+            <span style="font-size:11.5px;color:var(--muted);display:block;margin-top:8px">
+              Scientific Principle: Peltier Effect absorbs heat at cold junction and exhausts heat through heatsink + fan to exterior environment.
+            </span>
+          </div>
+        </div>
+
+        <!-- 6. TEMPERATURE TIMER & CONTROL MODES -->
+        <div class="rc-grid" style="margin-top:18px">
+          <!-- TEMPERATURE TIMER -->
+          <div class="rc-card">
+            <div class="rc-card-header">
+              <span class="rc-card-title"><span>⏱️</span> <span data-i18n="tempTimerTitle">TEMPERATURE TIMER</span></span>
+              <span class="status-pill good">Real Countdown</span>
+            </div>
+            <p style="font-size:12.5px;color:var(--muted)">Program a duration to maintain targeted cold storage holding temperature.</p>
+
+            <div style="display:flex;justify-content:space-between;gap:12px;margin:12px 0 6px">
+              <div style="flex:1;background:#f8faf9;border:1px solid var(--line);border-radius:var(--radius-sm);padding:10px;text-align:center">
+                <span style="font-size:11px;font-weight:700;color:var(--muted);display:block">Target Temp</span>
+                <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px">
+                  <button class="rc-stepper-btn" style="width:30px;height:30px;font-size:14px" onclick="adjustTimerTarget(-0.5)">−</button>
+                  <b id="timerTargetDisplay" style="font-size:16px;color:var(--g-dark)">6.0°C</b>
+                  <button class="rc-stepper-btn" style="width:30px;height:30px;font-size:14px" onclick="adjustTimerTarget(0.5)">+</button>
+                </div>
+              </div>
+
+              <div style="flex:1;background:#f8faf9;border:1px solid var(--line);border-radius:var(--radius-sm);padding:10px;text-align:center">
+                <span style="font-size:11px;font-weight:700;color:var(--muted);display:block">Duration</span>
+                <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px">
+                  <button class="rc-stepper-btn" style="width:30px;height:30px;font-size:14px" onclick="adjustTimerDuration(-0.5)">−</button>
+                  <b id="timerDurationDisplay" style="font-size:16px;color:var(--g-dark)">2 Hours</b>
+                  <button class="rc-stepper-btn" style="width:30px;height:30px;font-size:14px" onclick="adjustTimerDuration(0.5)">+</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Duration Presets -->
+            <div class="timer-presets-bar">
+              <button class="timer-preset-btn" onclick="setTimerPreset(15)">15m</button>
+              <button class="timer-preset-btn" onclick="setTimerPreset(30)">30m</button>
+              <button class="timer-preset-btn" onclick="setTimerPreset(60)">1h</button>
+              <button class="timer-preset-btn" onclick="setTimerPreset(120)">2h</button>
+              <button class="timer-preset-btn" onclick="setTimerPreset(240)">4h</button>
+              <button class="timer-preset-btn" onclick="setTimerPreset(360)">6h</button>
+              <button class="timer-preset-btn" onclick="setTimerPreset(480)">8h</button>
+            </div>
+
+            <!-- Live Countdown Box -->
+            <div class="timer-countdown-card" id="timerCountdownBox" style="display:none">
+              <div style="font-size:11px;font-weight:700;color:var(--g-primary);text-transform:uppercase">Temperature Timer Active</div>
+              <div class="timer-digits" id="timerLiveClock">02:00:00</div>
+              <div style="font-size:12.5px;color:var(--muted);margin-top:2px">
+                Target: <b id="timerActiveTarget">6.0°C</b> · Status: <span id="timerActiveStatus">Maintaining Target</span>
+              </div>
+            </div>
+
+            <!-- Timer Action Buttons -->
+            <div style="display:flex;gap:8px;margin-top:12px">
+              <button class="rc-btn active" id="btnStartTimer" style="flex:2" onclick="startTimer()" data-i18n="btnStartTimer">Start Timer</button>
+              <button class="rc-btn btn-warn" id="btnPauseTimer" style="display:none" onclick="pauseTimer()" data-i18n="btnPauseTimer">Pause</button>
+              <button class="rc-btn btn-danger" id="btnStopTimer" style="display:none" onclick="stopTimer()" data-i18n="btnStopTimer">Stop Timer</button>
+            </div>
+          </div>
+
+          <!-- 7. CONTROL MODE & EDGE AUTOMATION -->
+          <div class="rc-card">
+            <div class="rc-card-header">
+              <span class="rc-card-title"><span>🎚️</span> <span data-i18n="controlModeTitle">CONTROL MODE</span></span>
+              <span class="status-pill good">Autonomous Edge</span>
+            </div>
+            <p style="font-size:12.5px;color:var(--muted)">Select autonomous regulation or manual farmer override.</p>
+
+            <div style="margin-top:10px">
+              <span style="font-size:12px;font-weight:700;color:var(--muted)">Regulation Mode:</span>
+              <div class="rc-btn-group">
+                <button class="rc-btn active" id="btnModeAuto" onclick="setControlMode('AUTO')" data-i18n="btnAutoMode">🟢 AUTO</button>
+                <button class="rc-btn" id="btnModeManual" onclick="setControlMode('MANUAL')" data-i18n="btnManualMode">🟡 MANUAL</button>
+              </div>
+            </div>
+
+            <div style="margin-top:16px;padding:12px;background:#f8faf9;border-radius:var(--radius-sm);border:1px solid var(--line);font-size:12px;color:var(--ink)">
+              <b>Edge Automation Policy:</b> In AUTO mode, the ESP32 microcontroller continuously monitors chamber DS18B20 temperature and regulates solid-state Peltier PWM intensity automatically.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         TAB 7: SIH DEMO CENTER (SECTION 17 & 30)
+         ========================================================================== -->
+    <section id="page-demo" class="page">
+      <div class="welcome-banner">
+        <div>
+          <h1 data-i18n="judgeDemoTitle">🧪 SIH 2026 Judge Demonstration Center</h1>
+          <p data-i18n="judgeDemoSubtitle">Test real-world operational scenarios for the Solar-Powered Mini Cold Storage System.</p>
+        </div>
+        <button class="action-btn" onclick="triggerScenario('reset')" data-i18n="btnResetAll">🔄 Reset All to Normal</button>
+      </div>
+
+      <div class="demo-banner">
+        <div>
+          <b data-i18n="demoBannerTitle">🎯 Demonstration Objective for Evaluators</b>
+          <p data-i18n="demoBannerText">Demonstrate how our IoT edge unit (ESP32) detects environmental deviations, switches power sources, safeguards farmer produce, and communicates clear alerts without requiring complex technical knowledge.</p>
+        </div>
+        <div class="sim-indicator">
+          <div class="pulse-dot"></div>
+          <span>SIH Scenario Mode</span>
+        </div>
+      </div>
+
+      <div class="demo-center-card">
+        <div class="section-title" style="margin-bottom:16px">
+          <span>🕹️</span>
+          <span data-i18n="interactiveScenarios">Interactive Simulation Controls</span>
+        </div>
+
+        <div class="scenario-buttons-grid">
+          <!-- 1. NORMAL OPERATION -->
+          <button class="scenario-btn btn-restore" onclick="triggerScenario('reset')">
+            <span class="emoji">✅</span>
+            <span data-i18n="btnNormalOperation">NORMAL OPERATION</span>
+            <small>6.4°C • 84% • 78% Bat</small>
+          </button>
+
+          <!-- 2. SIMULATE TEMPERATURE FLUCTUATION -->
+          <button class="scenario-btn btn-critical" onclick="triggerScenario('tempRise')">
+            <span class="emoji">🌡️</span>
+            <span data-i18n="btnSimTempFluctuation">SIMULATE TEMP FLUCTUATION</span>
+            <small>Temp rises to 11.8°C</small>
+          </button>
+
+          <!-- 3. SIMULATE LOW BATTERY -->
+          <button class="scenario-btn btn-warning" onclick="triggerScenario('batLow')">
+            <span class="emoji">🪫</span>
+            <span data-i18n="btnSimLowBattery">SIMULATE LOW BATTERY</span>
+            <small>Battery = exactly 25%</small>
+          </button>
+
+          <!-- 4. RESTORE BATTERY -->
+          <button class="scenario-btn btn-restore" onclick="triggerScenario('batRestore')">
+            <span class="emoji">🔋</span>
+            <span data-i18n="btnRestoreBattery">RESTORE BATTERY</span>
+            <small>Returns to ~78%</small>
+          </button>
+
+          <!-- 5. SIMULATE POWER FAILURE -->
+          <button class="scenario-btn btn-critical" onclick="triggerScenario('powerFail')">
+            <span class="emoji">⚡</span>
+            <span data-i18n="btnSimPowerFailure">SIMULATE POWER FAILURE</span>
+            <small>Solar=0, Battery Backup</small>
+          </button>
+
+          <!-- 6. RESTORE POWER -->
+          <button class="scenario-btn btn-restore" onclick="triggerScenario('powerRestore')">
+            <span class="emoji">🔌</span>
+            <span data-i18n="btnRestorePower">RESTORE POWER</span>
+            <small>Solar generation returns</small>
+          </button>
+
+          <!-- 7. SIMULATE HIGH HUMIDITY -->
+          <button class="scenario-btn btn-warning" onclick="triggerScenario('highHum')">
+            <span class="emoji">💧</span>
+            <span data-i18n="btnSimHighHumidity">SIMULATE HIGH HUMIDITY</span>
+            <small>Humidity rises to 96%</small>
+          </button>
+
+          <!-- 8. SIMULATE DOOR OPEN -->
+          <button class="scenario-btn btn-warning" onclick="triggerScenario('doorOpen')">
+            <span class="emoji">🚪</span>
+            <span data-i18n="btnSimDoorOpen">SIMULATE DOOR OPEN</span>
+            <small>Door opened, cooling alert</small>
+          </button>
+
+          <!-- 9. SIMULATE HOT-SIDE TEMPERATURE RISE -->
+          <button class="scenario-btn btn-warning" onclick="triggerScenario('hotSideRise')">
+            <span class="emoji">🔥</span>
+            <span>SIMULATE HOT-SIDE TEMP RISE</span>
+            <small>Heatsink 55°C · Fan -> HIGH</small>
+          </button>
+
+          <!-- 10. SIMULATE MULTIPLE ISSUES -->
+          <button class="scenario-btn btn-critical" onclick="triggerScenario('multipleIssues')">
+            <span class="emoji">🚨</span>
+            <span data-i18n="btnSimMultipleIssues">SIMULATE MULTIPLE ISSUES</span>
+            <small>Temp + Bat 25% + Door + Hum</small>
+          </button>
+
+          <!-- 10. RESET ALL -->
+          <button class="scenario-btn btn-restore" onclick="triggerScenario('reset')">
+            <span class="emoji">🔄</span>
+            <span data-i18n="btnResetAll">RESET ALL</span>
+            <small>Restores to OPTIMAL</small>
+          </button>
+        </div>
+      </div>
+
+      <!-- 2-Minute Demonstration Flow Guide for SIH Judges (Section 30) -->
+      <div style="background:#ffffff;border:1px solid var(--line);border-radius:var(--radius);padding:22px">
+        <div class="section-title">
+          <span>📋</span>
+          <span data-i18n="flowWalkthroughTitle">Recommended 2-Minute Presentation Sequence for Judges</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px">
+          <div style="background:#fbfdfc;border:1px solid #e1ebe5;border-radius:12px;padding:14px;font-size:12.5px">
+            <b style="color:var(--g-primary);display:block;margin-bottom:4px" data-i18n="step1Title">Step 1: Baseline Health</b>
+            <span data-i18n="step1Desc">Click <b>NORMAL OPERATION</b>. Show OPTIMAL condition, 6.4°C temp, 84% humidity, and active solar generation.</span>
+          </div>
+          <div style="background:#fbfdfc;border:1px solid #e1ebe5;border-radius:12px;padding:14px;font-size:12.5px">
+            <b style="color:var(--g-primary);display:block;margin-bottom:4px" data-i18n="step2Title">Step 2: Temp Fluctuation</b>
+            <span data-i18n="step2Desc">Click <b>SIMULATE TEMP FLUCTUATION</b>. Temperature rises to 11.8°C, condition becomes CRITICAL, and alert appears.</span>
+          </div>
+          <div style="background:#fbfdfc;border:1px solid #e1ebe5;border-radius:12px;padding:14px;font-size:12.5px">
+            <b style="color:var(--g-primary);display:block;margin-bottom:4px" data-i18n="step3Title">Step 3: Low Battery & Backup</b>
+            <span data-i18n="step3Desc">Click <b>SIMULATE LOW BATTERY</b> (becomes 25%). Show red bar and alert. Click <b>SIMULATE POWER FAILURE</b> to show LiFePO₄ backup switch.</span>
+          </div>
+          <div style="background:#fbfdfc;border:1px solid #e1ebe5;border-radius:12px;padding:14px;font-size:12.5px">
+            <b style="color:var(--g-primary);display:block;margin-bottom:4px" data-i18n="step4Title">Step 4: Multiple Issues & Reset</b>
+            <span data-i18n="step4Desc">Click <b>SIMULATE MULTIPLE ISSUES</b> to stress-test. Then click <b>RESET ALL</b> to restore optimal baseline in seconds.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mobile Bottom Navigation (All 6 Tabs) -->
+  <nav class="app-nav">
+    <button class="active" id="nav-dashboard" onclick="showPage('dashboard')">
+      <span>🏠</span>
+      <span data-i18n="navDashboard">Dash</span>
+    </button>
+    <button id="nav-monitor" onclick="showPage('monitor')">
+      <span>📊</span>
+      <span data-i18n="navMonitor">Monitor</span>
+    </button>
+    <button id="nav-alerts" onclick="showPage('alerts')">
+      <span>🔔</span>
+      <span data-i18n="navAlerts">Alerts</span>
+    </button>
+    <button id="nav-produce" onclick="showPage('produce')">
+      <span>📦</span>
+      <span data-i18n="navProduce">Produce</span>
+    </button>
+    <button id="nav-system" onclick="showPage('system')">
+      <span>⚙️</span>
+      <span data-i18n="navSystem">System</span>
+    </button>
+    <button id="nav-remote" onclick="showPage('remote')">
+      <span>🎛️</span>
+      <span data-i18n="navRemote">Remote</span>
+    </button>
+    <button id="nav-demo" onclick="showPage('demo')">
+      <span>🧪</span>
+      <span data-i18n="navDemo">Demo</span>
+    </button>
+  </nav>
+</div>
+
+<script src="script.js"></script>
+<script src="coldcare-enhancements.js"></script>
+</body>
+</html>

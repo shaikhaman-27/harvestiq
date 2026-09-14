@@ -1,0 +1,24 @@
+{
+  "name": "harvestiq-smart-cold-storage",
+  "version": "1.0.0",
+  "description": "HarvestIQ - Solar-Powered Smart Cold Storage System for SIH 2026",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "node build-public.js",
+    "preview": "node -e \"const http=require('http'),fs=require('fs'),path=require('path');http.createServer((req,res)=>{let f=path.join(__dirname,'dist',req.url==='/'?'index.html':req.url);if(!fs.existsSync(f))f=path.join(__dirname,'dist','index.html');res.writeHead(200);fs.createReadStream(f).pipe(res);}).listen(4173,()=>console.log('Production preview running at http://localhost:4173'));\"",
+    "deploy:surge": "node build-public.js && npx surge public-demo harvestiq-sih2026.surge.sh",
+    "test": "node test_dom.js && node test_scenarios.js"
+  },
+  "keywords": [
+    "harvestiq",
+    "coldcare",
+    "sih2026",
+    "smart-solar-cold-storage",
+    "peltier-cooling",
+    "iot-monitoring"
+  ],
+  "author": "HarvestIQ SIH Team",
+  "license": "MIT"
+}

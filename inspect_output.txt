@@ -1,0 +1,108 @@
+=== SLIDE 1 (shapes: 7) ===
+  Shape 0: name="Rectangle 24", type=AUTO_SHAPE (1), pos=(1524000,0), size=(9144000,6858000)
+  Shape 1: name="Freeform: Shape 26", type=FREEFORM (5), pos=(5656780,851521), size=(4638605,5154967)
+  Shape 2: name="Picture 4", type=PICTURE (13), pos=(6854891,1715881), size=(3203509,3426237)
+  Shape 3: name="Subtitle 3", type=PLACEHOLDER (14), pos=(1245686,648614), size=(8534400,1752600)
+     Para 1 (level=0): "TITLE PAGE"
+  Shape 4: name="Title 7", type=PLACEHOLDER (14), pos=(331286,-526757), size=(10363200,2076450)
+     Para 0 (level=0): "SMART INDIA HACKATHON 2026"
+  Shape 5: name="TextBox 9", type=TEXT_BOX (17), pos=(331286,2076450), size=(5924550,4703019)
+     Para 1 (level=0): "Problem Statement ID –"
+     Para 2 (level=0): "Problem Statement Title-"
+     Para 3 (level=0): "Theme-"
+     Para 4 (level=0): "PS Category- Software/Hardware"
+     Para 5 (level=0): "Team ID-"
+     Para 6 (level=0): "Team Name (Registered on portal)"
+  Shape 6: name="Picture 1", type=PICTURE (13), pos=(9780086,1500), size=(2249850,1062337)
+=== SLIDE 2 (shapes: 7) ===
+  Shape 0: name="Rectangle 8", type=AUTO_SHAPE (1), pos=(0,6354762), size=(12191999,503238)
+  Shape 1: name="Title 1", type=PLACEHOLDER (14), pos=(182998,0), size=(10972800,1143000)
+     Para 0 (level=0): "IDEA TITLE"
+  Shape 2: name="TextBox 8", type=TEXT_BOX (17), pos=(-1,2064921), size=(12191999,2492990)
+     Para 0 (level=0): "Proposed Solution (Describe your Idea/Solution/Prototype)"
+     Para 3 (level=0): "Detailed explanation of the proposed solution"
+     Para 4 (level=0): "How it addresses the problem"
+     Para 5 (level=0): "Innovation and uniqueness of the solution"
+  Shape 3: name="Slide Number Placeholder 5", type=PLACEHOLDER (14), pos=(8737600,6356353), size=(2844800,365125)
+     Para 0 (level=0): "2"
+  Shape 4: name="Footer Placeholder 6", type=PLACEHOLDER (14), pos=(4648200,6356353), size=(3204000,365125)
+     Para 0 (level=0): "@SIH Idea submission- Template"
+  Shape 5: name="Oval 9", type=AUTO_SHAPE (1), pos=(329773,252246), size=(1251857,807334)
+     Para 0 (level=0): "Your Team Name"
+  Shape 6: name="Picture 10", type=PICTURE (13), pos=(9780086,1500), size=(2249850,1062337)
+=== SLIDE 3 (shapes: 7) ===
+  Shape 0: name="Rectangle 9", type=AUTO_SHAPE (1), pos=(0,6354762), size=(12191999,503238)
+  Shape 1: name="Title 1", type=PLACEHOLDER (14), pos=(609600,-47625), size=(10972800,1143000)
+     Para 0 (level=0): "TECHNICAL APPROACH"
+  Shape 2: name="TextBox 8", type=TEXT_BOX (17), pos=(609600,2533653), size=(9385300,1815882)
+     Para 0 (level=0): "Technologies to be used (e.g. programming languages, frameworks, hardware)"
+     Para 1 (level=0): "Methodology and process for implementation (Flow Charts/Images/ working prototype)"
+  Shape 3: name="Slide Number Placeholder 5", type=PLACEHOLDER (14), pos=(8737600,6356353), size=(2844800,365125)
+     Para 0 (level=0): "3"
+  Shape 4: name="Footer Placeholder 6", type=PLACEHOLDER (14), pos=(4648200,6356353), size=(3204000,365125)
+     Para 0 (level=0): "@SIH Idea submission- Template"
+  Shape 5: name="Oval 10", type=AUTO_SHAPE (1), pos=(329773,252246), size=(1251857,807334)
+     Para 0 (level=0): "Your Team Name"
+  Shape 6: name="Picture 11", type=PICTURE (13), pos=(9780086,1500), size=(2249850,1062337)
+=== SLIDE 4 (shapes: 7) ===
+  Shape 0: name="Rectangle 9", type=AUTO_SHAPE (1), pos=(0,6354762), size=(12191999,503238)
+  Shape 1: name="Title 1", type=PLACEHOLDER (14), pos=(609600,-47625), size=(10972800,1143000)
+     Para 0 (level=0): "FEASIBILITY AND VIABILITY"
+  Shape 2: name="TextBox 8", type=TEXT_BOX (17), pos=(609600,2533653), size=(9385300,1384995)
+     Para 0 (level=0): "Analysis of the feasibility of the idea"
+     Para 1 (level=0): "Potential challenges and risks"
+     Para 2 (level=0): "Strategies for overcoming these challenges"
+  Shape 3: name="Slide Number Placeholder 5", type=PLACEHOLDER (14), pos=(8737600,6356353), size=(2844800,365125)
+     Para 0 (level=0): "4"
+  Shape 4: name="Footer Placeholder 6", type=PLACEHOLDER (14), pos=(4648200,6356353), size=(3204000,365125)
+     Para 0 (level=0): "@SIH Idea submission- Template"
+  Shape 5: name="Oval 11", type=AUTO_SHAPE (1), pos=(329773,252246), size=(1251857,807334)
+     Para 0 (level=0): "Your Team Name"
+  Shape 6: name="Picture 10", type=PICTURE (13), pos=(9780086,1500), size=(2249850,1062337)
+=== SLIDE 5 (shapes: 7) ===
+  Shape 0: name="Rectangle 9", type=AUTO_SHAPE (1), pos=(0,6354762), size=(12191999,503238)
+  Shape 1: name="Title 1", type=PLACEHOLDER (14), pos=(609600,-47625), size=(10972800,1143000)
+     Para 0 (level=0): "IMPACT AND BENEFITS"
+  Shape 2: name="TextBox 8", type=TEXT_BOX (17), pos=(609600,2533653), size=(9385300,1384995)
+     Para 0 (level=0): "Potential impact on the target audience"
+     Para 1 (level=0): "Benefits of the solution (social, economic, environmental, etc.)"
+  Shape 3: name="Slide Number Placeholder 5", type=PLACEHOLDER (14), pos=(8737600,6356353), size=(2844800,365125)
+     Para 0 (level=0): "5"
+  Shape 4: name="Footer Placeholder 6", type=PLACEHOLDER (14), pos=(4648200,6356353), size=(3204000,365125)
+     Para 0 (level=0): "@SIH Idea submission- Template"
+  Shape 5: name="Oval 11", type=AUTO_SHAPE (1), pos=(329773,252246), size=(1251857,807334)
+     Para 0 (level=0): "Your Team Name"
+  Shape 6: name="Picture 10", type=PICTURE (13), pos=(9780086,1500), size=(2249850,1062337)
+=== SLIDE 6 (shapes: 7) ===
+  Shape 0: name="Rectangle 9", type=AUTO_SHAPE (1), pos=(0,6354762), size=(12191999,503238)
+  Shape 1: name="Title 1", type=PLACEHOLDER (14), pos=(609600,-47625), size=(10972800,1143000)
+     Para 0 (level=0): "RESEARCH  AND REFERENCES"
+  Shape 2: name="TextBox 8", type=TEXT_BOX (17), pos=(609600,2795263), size=(9385300,523220)
+     Para 0 (level=0): "Details / Links of the reference and research work"
+  Shape 3: name="Slide Number Placeholder 5", type=PLACEHOLDER (14), pos=(8737600,6356353), size=(2844800,365125)
+     Para 0 (level=0): "6"
+  Shape 4: name="Footer Placeholder 6", type=PLACEHOLDER (14), pos=(4648200,6356353), size=(3204000,365125)
+     Para 0 (level=0): "@SIH Idea submission- Template"
+  Shape 5: name="Oval 8", type=AUTO_SHAPE (1), pos=(329773,252246), size=(1251857,807334)
+     Para 0 (level=0): "Your Team Name"
+  Shape 6: name="Picture 11", type=PICTURE (13), pos=(9780086,1500), size=(2249850,1062337)
+=== SLIDE 7 (shapes: 8) ===
+  Shape 0: name="Rectangle 9", type=AUTO_SHAPE (1), pos=(0,6354762), size=(12191999,503238)
+  Shape 1: name="Slide Number Placeholder 5", type=PLACEHOLDER (14), pos=(8737600,6356353), size=(2844800,365125)
+     Para 0 (level=0): "7"
+  Shape 2: name="Footer Placeholder 6", type=PLACEHOLDER (14), pos=(4648200,6356353), size=(3204000,365125)
+     Para 0 (level=0): "@SIH Idea submission- Template"
+  Shape 3: name="Round Diagonal Corner Rectangle 2", type=AUTO_SHAPE (1), pos=(0,1791032), size=(12192000,4319200)
+  Shape 4: name="Google Shape;100;p3", type=TEXT_BOX (17), pos=(367832,1915454), size=(11764736,4070356)
+     Para 0 (level=0): "Kindly keep the maximum slides limit up to six (6). ( Including the title slide)"
+     Para 1 (level=0): "Try to avoid paragraphs and post your idea in points /diagrams / Infographics /pictures"
+     Para 2 (level=0): "Keep your explanation precise and easy to understand"
+     Para 3 (level=0): "Idea should be unique and novel."
+     Para 4 (level=0): "You can only use provided template for making the PPT without changing the idea details pointers (mentioned in previous slides)."
+     Para 5 (level=0): "You need to save the file in PDF and upload the same on portal. No PPT, Word Doc or any other format will be supported."
+     Para 7 (level=0): "Note - You can delete this slide (Important Pointers) when you upload the details of your idea on SIH portal."
+  Shape 5: name="TextBox 3", type=TEXT_BOX (17), pos=(1393371,107066), size=(8410540,646331)
+     Para 0 (level=0): "IMPORTANT INSTRUCTIONS"
+  Shape 6: name="TextBox 4", type=TEXT_BOX (17), pos=(602343,1181900), size=(9557657,341632)
+     Para 0 (level=0): "Please ensure below pointers are met while submitting the Idea PPT:"
+  Shape 7: name="Picture 12", type=PICTURE (13), pos=(9780086,1500), size=(2249850,1062337)
