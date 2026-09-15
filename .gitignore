@@ -33,3 +33,4 @@ extracted_pdf_imgs/
 # Operating System Files
 .DS_Store
 Thumbs.db
+.vercel
